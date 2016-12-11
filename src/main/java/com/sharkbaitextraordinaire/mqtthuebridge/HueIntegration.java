@@ -1,6 +1,7 @@
 package com.sharkbaitextraordinaire.mqtthuebridge;
 
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import com.philips.lighting.hue.sdk.PHAccessPoint;
 import com.philips.lighting.hue.sdk.PHHueSDK;
@@ -17,6 +18,10 @@ public class HueIntegration implements PHSDKListener {
 	
 	private final Logger logger = LoggerFactory.getLogger(HueIntegration.class);
 	private PHHueSDK huesdk;
+	// TODO need to wire this up
+	private LinkedBlockingQueue<Object> incomingFromMqtt;
+	// TODO need to wire this up
+	private LinkedBlockingQueue<Object> outgoingToMqtt;
 
 	@Override
 	public void onAccessPointsFound(List<PHAccessPoint> accessPoints) {
