@@ -31,7 +31,7 @@ public class MqtthuebridgeConfiguration {
 	 * integration to the Hue lamps (ie, commands for lights)
 	 * @return
 	 */
-	@Bean
+	@Bean(name="mqttToHue")
 	public LinkedBlockingQueue<Object> mqttToHue() {
 		return new LinkedBlockingQueue<Object>();
 	}
@@ -41,7 +41,7 @@ public class MqtthuebridgeConfiguration {
 	 * integration to the MQTT broker (ie, status from lamps)
 	 * @return
 	 */
-	@Bean
+	@Bean(name="hueToMqtt")
 	public LinkedBlockingQueue<Object> hueToMqtt() {
 		return new LinkedBlockingQueue<Object>();
 	}

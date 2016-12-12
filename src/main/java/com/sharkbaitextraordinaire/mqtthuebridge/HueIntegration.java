@@ -13,14 +13,18 @@ import com.philips.lighting.model.PHHueParsingError;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class HueIntegration implements PHSDKListener {
 	
 	private final Logger logger = LoggerFactory.getLogger(HueIntegration.class);
 	private PHHueSDK huesdk;
-	// TODO need to wire this up
+	@Autowired
+	@Qualifier("mqttToHue")
 	private LinkedBlockingQueue<Object> incomingFromMqtt;
-	// TODO need to wire this up
+	@Autowired
+	@Qualifier("hueToMqtt")
 	private LinkedBlockingQueue<Object> outgoingToMqtt;
 
 	@Override
